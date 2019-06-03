@@ -26,9 +26,6 @@
           </div>
         </div>
         <div class="flex justify-end">
-          <!-- <button v-on:click="filterResults" class="rounded flex-shrink-0 border-transparent bg-blue-500 hover:bg-blue-700 py-1 px-2 text-white font-bold">
-            Filter
-          </button> -->
           <button v-on:click="resetFilters" class="ml-2 rounded flex-shrink-0 border-transparent bg-red-500 hover:bg-red-700 py-1 px-2 text-white font-bold">
             Reset
           </button>
@@ -43,7 +40,6 @@
 <script>
 import axios from 'axios'
 import JobTable from './components/JobTable.vue'
-//import TribepadData from './assets/data/tribepad'
 
 export default {
   name: 'app',
@@ -67,15 +63,10 @@ export default {
         })
         .catch(e => (this.errors.push(e)))
     },
-    // filterResults: function(evt) {
-    //   evt.preventDefault();
-    //   this.jobs = this.jobs.filter(job => job.job_title.toLowerCase().includes(this.keywords) === true && job.category_id == this.category)
-    // },
     resetFilters: function(evt) {
       evt.preventDefault();
       this.keywords = '';
       this.category = '';
-      this.loadData();
     }
   },
   created: function() {

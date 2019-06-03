@@ -28,14 +28,6 @@ export default {
                 } else {
                     return '-';
                 }
-                // if(this.expiry_date == "0000-00-00") {
-                //     return '-'
-                // } else {
-                    //let date = new Date(this.expiry_date).toUTCString();
-                   // return date.getDate() + ' ' + 
-                   //return moment(this.expiry_date)
-                //}
-                
             }
         }
     }
