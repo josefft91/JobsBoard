@@ -1,6 +1,6 @@
 <template>
   <div class="my-16" id="app">
-    <div class="container mx-auto px-32">
+    <div class="container w-4/5 mx-auto px-16 py-5 bg-white shadow-xl">
       <form class="w-full max-w-sm mb-2">
         <div class="flex flex-wrap py-2">
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="keywords">
@@ -27,7 +27,13 @@
           </button>
         </div>
       </form>
-      <JobTable :jobs="this.jobs" :keywords="this.keywords" :category="this.category" />
+      <div class="container">
+        <Job 
+          v-for="(job, index) in filteredResults" 
+          :job="job"
+          :index="index"
+          :key="job.job_id" />
+        </div>
     </div>
     
   </div>
@@ -35,12 +41,12 @@
 
 <script>
 import axios from 'axios'
-import JobTable from './components/JobTable.vue'
+import Job from './components/Job.vue'
 
 export default {
   name: 'app',
   components: {
-    JobTable
+    Job
   },
   data() {
     return {
@@ -69,6 +75,13 @@ export default {
     this.loadData()
   },
   computed: {
+    filteredResults() {
+      return this.jobs.filter(job => {
+          return (job.job_title.toLowerCase().includes(this.keywords) === true 
+          || job.plain_package_description.toLowerCase().includes(this.keywords) === true) 
+          && (this.category != '' ? job.category_id == this.category : true)
+      })
+    },
     jobCategories() {
       return this.jobs.map(job => {
         var category = new Object()
@@ -84,6 +97,9 @@ export default {
 </script>
 
 <style>
+body{
+  @apply bg-gray-200
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

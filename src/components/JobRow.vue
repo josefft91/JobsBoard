@@ -1,10 +1,10 @@
 <template>
-<tr class="hover:bg-gray-100 border-t border-t-2 border-gray-300">
-    <td>{{ job.job_title }}</td>
+<div class="hover:bg-gray-100 border-t border-t-2 border-gray-300">
+    <h1>{{ job.job_title }}</h1>
     <td>{{ job.location_city }}</td>
     <td>{{ job.salaryDisplay }}</td>
     <td class="text-center">{{ formatDate }}</td>
-</tr>
+</div>
 </template>
 
 <script>
