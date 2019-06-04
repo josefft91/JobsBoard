@@ -1,6 +1,6 @@
 <template>
-  <div class="my-16" id="app">
-    <div class="container w-4/5 mx-auto px-16 py-5 bg-white shadow-xl">
+  <div class="md:my-8 lg:my-16" id="app">
+    <div class="container md:w-11/12 lg:w-4/5 mx-auto px-4 lg:px-16 py-5 bg-white shadow-xl">
       <form class="w-full max-w-sm mb-2">
         <div class="flex flex-wrap py-2">
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="keywords">
